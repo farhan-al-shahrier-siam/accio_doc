@@ -1,4 +1,3 @@
-import { Skeleton } from "@heroui/react";
 import DoctorCard from "./DoctorCard";
 import { getDoctors } from "@/lib/data";
 

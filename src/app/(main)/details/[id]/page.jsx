@@ -8,9 +8,9 @@ import { LuArrowRight, LuBadgeCheck, LuBuilding2, LuClock, LuLightbulb, LuMapPin
 const DoctorDetailsPage = async ({ params }) => {
     const { id } = await params;
 
-    console.log(id);
+    // console.log(id);
     const doctor = await getDoctorByID(id);
-    console.log(doctor);
+    // console.log(doctor);
 
     return (
         <div>

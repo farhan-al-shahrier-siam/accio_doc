@@ -10,4 +10,14 @@ export const getDoctorByID = async (id) => {
     return doctor;
 };
 
+export const getDoctorsByName = async (name) => {
+    const res = await fetch(
+        `${process.env.SERVER_URL}/doctors/search?name=${name}`
+    );
+
+    const data = await res.json();
+
+    return data;
+};
+
 

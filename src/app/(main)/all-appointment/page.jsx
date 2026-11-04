@@ -1,4 +1,5 @@
 import DoctorList from "@/components/all-appointment/DoctorList";
+import Searchfield from "@/components/all-appointment/Searchfield";
 import React from "react";
 import { FiAward, FiShield, FiZap } from "react-icons/fi";
 
@@ -16,7 +17,7 @@ const AllAppointmentPage = () => {
 
                         <h2 className="font-serif text-3xl font-bold tracking-tight text-[#211a35] md:text-4xl">Find Your Perfect Specialist</h2>
 
-                        <p className="mt-2 max-w-[620px] text-sm leading-6 text-[#625c6c] md:text-base">
+                        <p className="mt-2 max-w-155 text-sm leading-6 text-[#625c6c] md:text-base">
                             Explore over 500+ board-certified medical doctors, clinical researchers, and department heads. Filter by specialty, real-time availability, and instant verified telehealth
                             or in-person visits.
                         </p>
@@ -41,6 +42,8 @@ const AllAppointmentPage = () => {
                     </div>
                 </div>
             </section>
+
+            <Searchfield></Searchfield>
 
             <DoctorList></DoctorList>
         </div>
