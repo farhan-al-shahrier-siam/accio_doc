@@ -1,5 +1,6 @@
 import { FiCalendar, FiSearch, FiMapPin, FiBriefcase, FiArrowUpRight, FiCheckCircle, FiStar, FiZap } from "react-icons/fi";
 import { FaCheckCircle } from "react-icons/fa";
+import Link from "next/link";
 
 const Banner = () => {
     return (
@@ -21,18 +22,18 @@ const Banner = () => {
 
                         {/* CTA Buttons */}
                         <div className="mt-7 flex flex-wrap gap-4">
-                            <a
-                                href="/doctors"
+                            <Link
+                                href="/all-appointment"
                                 className="inline-flex items-center gap-2 rounded-full bg-[#6853a6] px-7 py-3.5 font-semibold text-white shadow-md transition hover:bg-[#514087] hover:shadow-lg"
                             >
                                 Find a Doctor
                                 <FiCalendar size={19} />
-                            </a>
+                            </Link>
 
-                            <a href="/doctors" className="inline-flex items-center gap-2 rounded-full bg-[#eee5ff] px-7 py-3.5 font-semibold text-[#55418e] transition hover:bg-[#e3d6ff]">
+                            <Link href="/all-appointment" className="inline-flex items-center gap-2 rounded-full bg-[#eee5ff] px-7 py-3.5 font-semibold text-[#55418e] transition hover:bg-[#e3d6ff]">
                                 Explore Specialists
                                 <FiArrowUpRight size={20} />
-                            </a>
+                            </Link>
                         </div>
 
                         {/* Statistics */}

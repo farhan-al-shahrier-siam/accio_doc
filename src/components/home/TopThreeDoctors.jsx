@@ -9,7 +9,7 @@ import { FiBriefcase, FiMapPin } from "react-icons/fi";
 
 const TopThreeDoctors = async () => {
     const doctors = await getDoctors();
-    console.log(doctors);
+    // console.log(doctors);
 
     // Get the 3 highest-rated doctors
     const topDoctors = [...doctors].sort((a, b) => Number(b.rating) - Number(a.rating)).slice(0, 3);
@@ -88,7 +88,7 @@ const TopThreeDoctors = async () => {
                                             <p className="mt-1 text-xl font-bold text-[#211a35]">৳{doctor.fee}</p>
                                         </div>
 
-                                        <Link href={"/"}>
+                                        <Link href={`/details/${doctor._id}`}>
                                             <Button className="rounded-full bg-[#6953a8] px-5 font-semibold text-white transition-colors hover:bg-[#514087]" endContent={<FaArrowRight size={13} />}>
                                                 View Details
                                             </Button>

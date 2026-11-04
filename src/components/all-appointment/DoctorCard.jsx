@@ -6,7 +6,7 @@ import { FiMapPin, FiArrowRight } from "react-icons/fi";
 import { HiOutlineSparkles } from "react-icons/hi2";
 
 export default function DoctorCard({ doctor }) {
-    const { name, specialty, hospital, image, rating, experience, location, fee, availability } = doctor;
+    const { name, specialty, hospital, image, rating, experience, location, fee, availability, _id } = doctor;
 
     return (
         <Card shadow="sm" radius="lg" className="w-full border border-transparent bg-white p-2 space-y-4">
@@ -14,7 +14,7 @@ export default function DoctorCard({ doctor }) {
                 {/* Header */}
                 <div className="flex items-start gap-3">
                     <div className="relative shrink-0">
-                        <Image src={image} alt="name" height={400} width={300} className="h-30 fit rounded-full w-30" imgProps={{ className: "object-cover object-top" }} />
+                        <Image src={image} alt={name} height={400} width={300} className="h-30 fit rounded-full w-30" />
                         <span className="absolute -bottom-0.5 -right-0.5 flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-emerald-700 text-white">
                             <FaCheck className="h-2.5 w-2.5" />
                         </span>
@@ -67,7 +67,7 @@ export default function DoctorCard({ doctor }) {
                 </div>
 
                 {/* CTA */}
-                <Link href={""}>
+                <Link href={`/details/${_id}`}>
                 <Button
                     fullWidth
                     radius="full"
