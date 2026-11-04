@@ -5,7 +5,7 @@ import Link from "next/link";
 const Banner = () => {
     return (
         <section className="relative overflow-hidden bg-[#fdf7ff] px-5 py-16 md:px-10 lg:px-16 lg:py-20">
-            <div className="mx-auto max-w-[1440px]">
+            <div className="mx-auto max-w-360">
                 {/* Main Hero Content */}
                 <div className="grid items-center gap-12 lg:grid-cols-2">
                     {/* Left Content */}
@@ -16,7 +16,7 @@ const Banner = () => {
                             Your Health, Just a <span className="font-normal italic text-[#60499f]">Spell Away.</span>
                         </h1>
 
-                        <p className="mt-6 max-w-[690px] text-base leading-8 text-gray-600 md:text-lg">
+                        <p className="mt-6 max-w-172.5 text-base leading-8 text-gray-600 md:text-lg">
                             Discover vetted healthcare specialists and secure your clinical appointment with seamless precision. Compassionate, premier medicine tailored around your schedule.
                         </p>
 
@@ -65,7 +65,7 @@ const Banner = () => {
                     </div>
 
                     {/* Right Image */}
-                    <div className="relative mx-auto w-full max-w-[550px] lg:ml-auto">
+                    <div className="relative mx-auto w-full max-w-137.5 lg:ml-auto">
                         <div className="relative h-[430px] overflow-hidden rounded-[40px] shadow-2xl md:h-[570px]">
                             <img
                                 src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1000&auto=format&fit=crop&q=85"
