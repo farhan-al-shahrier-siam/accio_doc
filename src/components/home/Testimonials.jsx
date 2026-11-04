@@ -74,8 +74,6 @@ const Testimonials = () => {
                     {/* Decorative Gradient Circles */}
                     <div className="absolute -left-20 -top-24 h-64 w-64 rounded-full bg-purple-300/20 blur-3xl" />
 
-                    <div className="absolute -bottom-24 -right-10 h-72 w-72 rounded-full bg-teal-300/40 blur-3xl" />
-
                     {/* Content */}
                     <div className="relative z-10 mx-auto max-w-2xl">
                         <div className="mb-3 flex justify-center text-3xl text-[#60499f]">✣</div>
