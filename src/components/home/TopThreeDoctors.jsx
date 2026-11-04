@@ -70,7 +70,7 @@ const TopThreeDoctors = async () => {
                                     <div className="mb-3 flex items-center justify-between gap-2 text-sm text-gray-600">
                                         <div className="flex items-center gap-1.5">
                                             <FiBriefcase className="text-[#7158b1]" />
-                                            {doctor.experience} Yrs Exp.
+                                            {doctor.experience} Exp.
                                         </div>
 
                                         <div className="flex items-center gap-1.5">
@@ -85,7 +85,7 @@ const TopThreeDoctors = async () => {
                                     <div className="flex items-center justify-between gap-3">
                                         <div>
                                             <p className="text-xs text-gray-600">Consultation</p>
-                                            <p className="mt-1 text-xl font-bold text-[#211a35]">${doctor.fee}</p>
+                                            <p className="mt-1 text-xl font-bold text-[#211a35]">৳{doctor.fee}</p>
                                         </div>
 
                                         <Link href={"/"}>
