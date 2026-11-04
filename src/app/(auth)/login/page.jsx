@@ -1,6 +1,7 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
 import { Button, Input } from "@heroui/react";
+import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
@@ -32,12 +33,12 @@ export default function LoginPage() {
                 <div className="rounded-3xl bg-white p-8 shadow-xl">
                     {/* Tabs */}
                     <div className="mx-auto flex w-fit gap-2 rounded-full bg-[#f4efff] p-1.5">
-                        <button className="flex items-center gap-2 rounded-full bg-[#62549f] px-6 py-2 text-sm font-semibold text-white">
+                        <Link href={"/login"} className="flex items-center gap-2 rounded-full bg-[#62549f] px-6 py-2 text-sm font-semibold text-white">
                             <HiOutlineLogin /> Sign In
-                        </button>
-                        <button className="flex items-center gap-2 rounded-full px-6 py-2 text-sm font-medium text-gray-600">
+                        </Link>
+                        <Link href={"/register"} className="flex items-center gap-2 rounded-full px-6 py-2 text-sm font-medium text-gray-600">
                             <HiOutlineUserAdd /> Create Account
-                        </button>
+                        </Link>
                     </div>
 
                     <div className="mt-8 text-center">
@@ -99,9 +100,9 @@ export default function LoginPage() {
 
                     <p className="mt-6 text-center text-xs text-gray-600">
                         Don&apos;t have an AccioDoc account?{" "}
-                        <a href="#" className="font-semibold text-[#62549f]">
+                        <Link href="/register" className="font-semibold text-[#62549f]">
                             Create an account
-                        </a>
+                        </Link>
                     </p>
 
                     <div className="mt-10 flex flex-wrap justify-center gap-3 text-xs font-medium text-gray-700">
