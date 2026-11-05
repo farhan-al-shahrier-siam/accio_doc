@@ -24,6 +24,12 @@ export default function LoginPage() {
             password: password,
             callbackURL: "/",
         });
+        if(res){
+            alert("Login successfull...")
+        }
+        if(error){
+            alert(error.message)
+        }
     };
 
     return (

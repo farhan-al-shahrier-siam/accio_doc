@@ -5,6 +5,8 @@ import { usePathname, useRouter } from "next/navigation";
 import { Avatar, Button } from "@heroui/react";
 import { FiBell, FiLogOut, FiPlus } from "react-icons/fi";
 import { FaUserDoctor, FaWandMagicSparkles } from "react-icons/fa6";
+import { authClient } from "@/lib/auth-client";
+import Image from "next/image";
 
 const navLinks = [
     { name: "Home", href: "/" },
@@ -17,11 +19,8 @@ export default function Navbar() {
     const router = useRouter();
 
     // Replace these values with your actual user data.
-    const user = {
-        name: "Sarah Jenkins",
-        role: "Patient Member",
-        image: "https://i.pravatar.cc/100?img=47",
-    };
+
+    const { data: session } = authClient.useSession();
 
     const handleLogout = () => {
         // Add your authentication logout logic here.
@@ -30,7 +29,7 @@ export default function Navbar() {
 
     return (
         <header className="sticky top-0 z-50 w-full border border-[#eee8fa] bg-white">
-            <nav className="mx-auto flex min-h-[88px] w-full items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+            <nav className="mx-auto flex min-h-22 w-full items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
                 {/* Logo */}
                 <Link href="/" className="flex shrink-0 items-center gap-1.5 text-[#4d3593]" aria-label="AccioDoc home">
                     <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#f4efff]">
@@ -63,34 +62,29 @@ export default function Navbar() {
 
                 {/* Right Side: Notifications and Profile */}
                 <div className="flex shrink-0 items-center gap-3 sm:gap-5">
-                    {/* Notifications */}
-                    {/* <Button isIconOnly variant="light" radius="full" aria-label="Notifications" className="relative min-w-10 text-[#494454]">
-                        <FiBell size={21} />
-
-                        <span className="absolute right-1.5 top-1.5 h-2.5 w-2.5 rounded-full border border-white bg-[#c62828]" />
-                    </Button> */}
-
-                    <Link href={"/login"}>
-                      <Button>Login</Button>
-                    </Link>
-                    <Link href={"/register"}>
-                      <Button>Register</Button>
-                    </Link>
-
                     {/* User Profile */}
-                    {/* <div className="flex items-center gap-2 rounded-full bg-[#f7f1ff] py-1.5 pl-2 pr-2 sm:gap-2.5 sm:pl-2.5 sm:pr-3">
-                        <Avatar src={user.image} name={user.name} size="sm" className="h-9 w-9 shrink-0" />
+                    {session?.user ? (
+                        <div className="flex items-center gap-2 rounded-full bg-[#f7f1ff] py-1.5 pl-2 pr-2 sm:gap-2.5 sm:pl-2.5 sm:pr-3">
+                            <Image alt={session?.user.name} height={90} width={90} src={session?.user.image} className="h-10 w-10 shrink-0 rounded-full" />
 
-                        <div className="hidden min-w-0 sm:block">
-                            <p className="max-w-[130px] truncate text-sm font-semibold leading-5 text-[#30263d]">{user.name}</p>
+                            <div className="hidden min-w-0 sm:block">
+                                <p className="max-w-32.5 truncate text-sm font-semibold leading-5 text-[#30263d]">{session?.user.name}</p>
+                            </div>
 
-                            <p className="text-xs leading-4 text-[#276b52]">{user.role}</p>
+                            <Button isIconOnly variant="light" radius="full" size="sm" aria-label="Log out" onPress={handleLogout} className="min-w-8 text-[#494454]">
+                                <FiLogOut size={18} />
+                            </Button>
                         </div>
-
-                        <Button isIconOnly variant="light" radius="full" size="sm" aria-label="Log out" onPress={handleLogout} className="min-w-8 text-[#494454]">
-                            <FiLogOut size={18} />
-                        </Button>
-                    </div> */}
+                    ) : (
+                        <div>
+                            <Link href={"/login"}>
+                                <Button className={"bg-[#4d3593] text-white hover:bg-[#6e50ca]"}>Login</Button>
+                            </Link>
+                            <Link href={"/register"}>
+                                <Button className={"bg-[#4d3593] text-white hover:bg-[#6e50ca]"}>Register</Button>
+                            </Link>
+                        </div>
+                    )}
                 </div>
             </nav>
 
