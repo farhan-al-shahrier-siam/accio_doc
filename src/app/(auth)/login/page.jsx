@@ -24,12 +24,18 @@ export default function LoginPage() {
             password: password,
             callbackURL: "/",
         });
-        if(res){
-            alert("Login successfull...")
+        if (res) {
+            alert("Login successfull...");
         }
-        if(error){
-            alert(error.message)
+        if (error) {
+            alert(error.message);
         }
+    };
+
+    const handleGoogleSignin = async () => {
+        const data = await authClient.signIn.social({
+            provider: "google",
+        });
     };
 
     return (
@@ -53,7 +59,7 @@ export default function LoginPage() {
                     </div>
 
                     <div className="mt-8">
-                        <Button variant="outline" className="w-full text-white bg-[#bda5e8] font-semibold">
+                        <Button onClick={handleGoogleSignin} variant="outline" className="w-full text-white bg-[#bda5e8] font-semibold">
                             <FcGoogle />
                             Continue with Google
                         </Button>

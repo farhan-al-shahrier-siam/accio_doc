@@ -22,9 +22,10 @@ export default function Navbar() {
 
     const { data: session } = authClient.useSession();
 
-    const handleLogout = () => {
-        // Add your authentication logout logic here.
-        router.push("/login");
+    const handleLogout = async () => {
+        await authClient.signOut();
+        alert("Logout successful...")
+
     };
 
     return (
@@ -76,7 +77,7 @@ export default function Navbar() {
                             </Button>
                         </div>
                     ) : (
-                        <div>
+                        <div className="flex gap-2">
                             <Link href={"/login"}>
                                 <Button className={"bg-[#4d3593] text-white hover:bg-[#6e50ca]"}>Login</Button>
                             </Link>

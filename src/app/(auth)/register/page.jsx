@@ -56,6 +56,12 @@ const RegisterPage = () => {
         }
     };
 
+    const handleGoogleSignin = async () => {
+        const data = await authClient.signIn.social({
+            provider: "google",
+        });
+    };
+
     return (
         <div className="min-h-screen bg-[#faf7ff] p-4 lg:p-8">
             <div className="mx-auto max-w-2xl">
@@ -82,7 +88,7 @@ const RegisterPage = () => {
 
                     {/* Google Sign Up */}
                     <div className="mt-8">
-                        <Button variant="outline" className="w-full bg-[#bda5e8] font-semibold text-white" type="button">
+                        <Button onClick={handleGoogleSignin} variant="outline" className="w-full bg-[#bda5e8] font-semibold text-white" type="button">
                             <FcGoogle size={20} />
                             Sign Up with Google
                         </Button>
@@ -179,7 +185,7 @@ const RegisterPage = () => {
                                     <button
                                         type="button"
                                         onClick={() => setShowPassword(!showPassword)}
-                                        className="absolute right-4 top-[52px] z-10 -translate-y-1/2 text-gray-500"
+                                        className="absolute right-4 top-13 z-10 -translate-y-1/2 text-gray-500"
                                         aria-label={showPassword ? "Hide password" : "Show password"}
                                     >
                                         {showPassword ? <FiEyeOff size={18} /> : <FiEye size={18} />}
