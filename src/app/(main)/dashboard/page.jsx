@@ -1,5 +1,5 @@
 "use client";
-import EditModal from "@/components/dashboard/EditModal";
+import ProfileCard from "@/components/dashboard/ProfileCard";
 import { authClient } from "@/lib/auth-client";
 import Image from "next/image";
 import { FiCheck, FiChevronLeft, FiPlus } from "react-icons/fi";
@@ -74,11 +74,12 @@ const DashBoard = () => {
                                 Here is an overview of your medical consultations, personalized therapy regimens, and upcoming visits.
                             </p>
                         </div>
-
-                        <EditModal name={session?.user.name} photo={session?.user.image}></EditModal>
                     </div>
                 </div>
             </section>
+            <div className="px-5 py-0">
+                <ProfileCard name={session?.user?.name} email={session?.user?.email} photo={session?.user?.image} />
+            </div>
         </div>
     );
 };
