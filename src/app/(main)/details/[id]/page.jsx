@@ -1,3 +1,4 @@
+import BookingModal from "@/components/detailsPage/BookingModal";
 import { getDoctorByID } from "@/lib/data";
 import { Button, Card } from "@heroui/react";
 import Image from "next/image";
@@ -156,9 +157,7 @@ const DoctorDetailsPage = async ({ params }) => {
 
                                 {/* CTA */}
                                 <div className="flex flex-col items-center gap-2">
-                                    <Button fullWidth radius="full" size="lg" className="h-12 bg-[#4a3a7a] text-base font-medium text-white" endContent={<LuArrowRight className="h-4 w-4" />}>
-                                        Book Appointment
-                                    </Button>
+                                    <BookingModal doctor={doctor} ></BookingModal>
                                     <p className="text-center text-[11px] text-gray-600">Pay at chamber desk upon arrival • Free cancellation up to 2 hours prior</p>
                                 </div>
 

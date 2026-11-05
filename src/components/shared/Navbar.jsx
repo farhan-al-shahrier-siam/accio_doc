@@ -16,8 +16,6 @@ const navLinks = [
 
 export default function Navbar() {
     const pathname = usePathname();
-    const router = useRouter();
-
     // Replace these values with your actual user data.
 
     const { data: session } = authClient.useSession();
