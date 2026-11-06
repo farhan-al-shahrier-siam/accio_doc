@@ -1,9 +1,11 @@
 import { Button, Card, Chip } from "@heroui/react";
 import Image from "next/image";
 import React from "react";
-import { FiCalendar, FiClock, FiEdit3, FiMapPin, FiRefreshCw, FiUser, FiVideo, FiXCircle } from "react-icons/fi";
+import { FaTrash } from "react-icons/fa6";
+import { FiCalendar, FiClock, FiEdit3, FiRefreshCw, FiUser, FiVideo, FiXCircle } from "react-icons/fi";
+import EditBookingModal from "./EditBookingModal";
 
-const BookingCard = ({booking}) => {
+const BookingCard = ({ booking }) => {
     return (
         <Card key={booking.id} className="rounded-3xl border-none p-5 shadow-md md:p-7">
             <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
@@ -47,33 +49,22 @@ const BookingCard = ({booking}) => {
                             <span>
                                 Patient: <strong className="text-[#211a38]">{booking.name}</strong>
                             </span>
+                            <span>
+                                Phone: <strong className="text-[#211a38]">{booking.phone}</strong>
+                            </span>
 
                             <span>•</span>
-
                         </div>
                     </div>
                 </div>
 
                 {/* Buttons */}
                 <div className="flex flex-wrap items-center gap-3">
-                    {booking.video && (
-                        <Button radius="full" className="bg-[#006b4f] text-white" startContent={<FiVideo />}>
-                            Join Video Call
-                        </Button>
-                    )}
+                    <EditBookingModal _id={booking._id} name={booking.name} phone={booking.phone} date={booking.appointmentDate} time={booking.appointmentTime}  ></EditBookingModal>
 
-                    <Button radius="full" className="bg-[#6b54aa] text-white" startContent={<FiEdit3 />}>
-                        {booking.video ? "Update" : "Update Details"}
-                    </Button>
-
-                    {!booking.video && (
-                        <Button radius="full" className="bg-[#f0e7ff] text-[#211a38]" startContent={<FiRefreshCw />}>
-                            Reschedule
-                        </Button>
-                    )}
-
-                    <Button isIconOnly radius="full" className="bg-[#f4ebff] text-gray-600">
-                        <FiXCircle size={21} />
+                    <Button radius="full" className="bg-[#f0e7ff] text-red-500 font-bold">
+                        <FaTrash></FaTrash>
+                        Delete
                     </Button>
                 </div>
             </div>

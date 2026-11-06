@@ -23,9 +23,9 @@ const MyBookings = async () => {
             <div className="mb-8 flex flex-col gap-5 md:flex-row md:items-center md:justify-between"></div>
 
             <div className="space-y-6">
-                {myBookings.map((booking) => (
+                {myBookings.length > 0 ? myBookings.map((booking) => (
                     <BookingCard booking={booking} key={booking._id}></BookingCard>
-                ))}
+                )) : <div className="font-bold text-4xl text-center p-8"> You have no bookings </div>}
             </div>
         </div>
     );
