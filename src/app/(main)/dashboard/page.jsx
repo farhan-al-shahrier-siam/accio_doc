@@ -1,11 +1,16 @@
-"use client";
+import MyBookings from "@/components/dashboard/MyBookings";
 import ProfileCard from "@/components/dashboard/ProfileCard";
+import { auth } from "@/lib/auth";
 import { authClient } from "@/lib/auth-client";
+import { headers } from "next/headers";
 import Image from "next/image";
 import { FiCheck, FiChevronLeft, FiPlus } from "react-icons/fi";
 
-const DashBoard = () => {
-    const { data: session } = authClient.useSession();
+const DashBoard = async () => {
+    const session = await auth.api.getSession({
+        headers: await headers(),
+    });
+
 
     return (
         <div className="bg-[#fcf8ff]">
@@ -80,6 +85,8 @@ const DashBoard = () => {
             <div className="px-5 py-0">
                 <ProfileCard name={session?.user?.name} email={session?.user?.email} photo={session?.user?.image} />
             </div>
+
+            <MyBookings></MyBookings>
         </div>
     );
 };

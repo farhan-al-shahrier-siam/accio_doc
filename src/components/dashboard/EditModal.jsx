@@ -2,6 +2,7 @@
 
 import { authClient } from "@/lib/auth-client";
 import { Button, Input, Label, Modal, Surface, TextField } from "@heroui/react";
+import { redirect } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { FiEdit3 } from "react-icons/fi";
@@ -20,6 +21,8 @@ const EditModal = ({ photo, name }) => {
             name: name,
             image: photo,
         });
+        alert("Update Successfull")
+        redirect("/dashboard")
     };
 
     return (

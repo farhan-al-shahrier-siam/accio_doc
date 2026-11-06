@@ -11,13 +11,15 @@ export const getDoctorByID = async (id) => {
 };
 
 export const getDoctorsByName = async (name) => {
-    const res = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/doctors/search?name=${name}`
-    );
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/doctors/search?name=${name}`);
 
     const data = await res.json();
 
     return data;
 };
 
-
+export const getBookingsByID = async (id) => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/appointments/${id}`);
+    const data = await res.json();
+    return data;
+};

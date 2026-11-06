@@ -11,6 +11,8 @@ import { LuArrowRight, LuCalendarDays, LuCalendarCheck, LuX, LuUser, LuMail, LuP
 const BookingModal = ({ doctor }) => {
     const { data: session } = authClient.useSession();
 
+    // console.log(session);
+
     const { name, image, hospital, availability, fee } = doctor;
 
     const {
@@ -23,6 +25,9 @@ const BookingModal = ({ doctor }) => {
             email: session?.user?.email || "",
             phone: "",
             gender: "Female",
+            appointmentDate: "",
+            appointmentTime: "",
+
         },
     });
 
@@ -30,8 +35,9 @@ const BookingModal = ({ doctor }) => {
         const bookingData = {
             ...data,
             doctor: name,
+            doctorImage: image,
             hospital: hospital,
-            appointment: availability,
+            userID: session?.user?.id,
         };
 
         // console.log("Booking Data:", bookingData);
@@ -44,6 +50,8 @@ const BookingModal = ({ doctor }) => {
             body: JSON.stringify(bookingData)
         })
         const result = res.json();
+
+        alert("Booking successful...")
 
 
     };
@@ -109,7 +117,7 @@ const BookingModal = ({ doctor }) => {
                                         <LuUser className="text-gray-500" size={20} />
 
                                         <Input
-                                            {...register("userName", {
+                                            {...register("name", {
                                                 required: "Name is required",
                                             })}
                                             placeholder="Enter your full name"
@@ -158,6 +166,45 @@ const BookingModal = ({ doctor }) => {
                                         </div>
 
                                         {errors.phone && <p className="mt-1 text-xs text-red-500">{errors.phone.message}</p>}
+                                    </TextField>
+                                </div>
+                                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                                    <TextField name="appointmentDate" className="w-full">
+                                        <Label className="mb-1.5 block text-sm font-semibold text-[#252039]">Appointment Date</Label>
+
+                                        <div className="flex h-14 items-center gap-3 rounded-xl border border-gray-100 px-4 shadow-sm focus-within:border-[#6856f5]">
+                                            <LuMail className="shrink-0 text-gray-500" size={20} />
+
+                                            <Input
+                                                type="text"
+                                                {...register("appointmentDate", {
+                                                    required: "Date is required",
+                                                })}
+                                                placeholder="Enter date"
+                                                className="w-full border-0 bg-transparent text-sm outline-none"
+                                            />
+                                        </div>
+
+                                        {errors.appointmentDate && <p className="mt-1 text-xs text-red-500">{errors.appointmentDate.message}</p>}
+                                    </TextField>
+
+                                    <TextField name="appointmentTime" className="w-full">
+                                        <Label className="mb-1.5 block text-sm font-semibold text-[#252039]">Appointment Time</Label>
+
+                                        <div className="flex h-14 items-center gap-3 rounded-xl border border-gray-100 px-4 shadow-sm focus-within:border-[#6856f5]">
+                                            <LuPhone className="shrink-0 text-gray-500" size={20} />
+
+                                            <Input
+                                                type="text"
+                                                {...register("appointmentTime", {
+                                                    required: "Time is required",
+                                                })}
+                                                placeholder="Enter time"
+                                                className="w-full border-0 bg-transparent text-sm outline-none"
+                                            />
+                                        </div>
+
+                                        {errors.appointmentTime && <p className="mt-1 text-xs text-red-500">{errors.appointmentTime.message}</p>}
                                     </TextField>
                                 </div>
 
