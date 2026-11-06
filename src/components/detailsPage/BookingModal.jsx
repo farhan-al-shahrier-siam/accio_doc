@@ -235,7 +235,7 @@ const BookingModal = ({ doctor }) => {
                                 Cancel
                             </Button>
 
-                            <Button type="submit" form="booking-form" className="h-12 rounded-full bg-[#4a3a7a] px-6 font-semibold text-white shadow-md hover:bg-[#3c2e67] sm:px-8">
+                            <Button type="submit" slot={"close"} form="booking-form" className="h-12 rounded-full bg-[#4a3a7a] px-6 font-semibold text-white shadow-md hover:bg-[#3c2e67] sm:px-8">
                                 Confirm Booking (৳{fee})
                                 <LuArrowRight className="ml-2" size={18} />
                             </Button>

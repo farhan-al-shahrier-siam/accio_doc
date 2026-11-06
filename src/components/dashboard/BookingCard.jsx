@@ -4,6 +4,7 @@ import React from "react";
 import { FaTrash } from "react-icons/fa6";
 import { FiCalendar, FiClock, FiEdit3, FiRefreshCw, FiUser, FiVideo, FiXCircle } from "react-icons/fi";
 import EditBookingModal from "./EditBookingModal";
+import DeleteBTN from "./DeleteBTN";
 
 const BookingCard = ({ booking }) => {
     return (
@@ -62,10 +63,7 @@ const BookingCard = ({ booking }) => {
                 <div className="flex flex-wrap items-center gap-3">
                     <EditBookingModal _id={booking._id} name={booking.name} phone={booking.phone} date={booking.appointmentDate} time={booking.appointmentTime}  ></EditBookingModal>
 
-                    <Button radius="full" className="bg-[#f0e7ff] text-red-500 font-bold">
-                        <FaTrash></FaTrash>
-                        Delete
-                    </Button>
+                    <DeleteBTN _id={booking._id} doctor={booking.doctor}></DeleteBTN>
                 </div>
             </div>
         </Card>
