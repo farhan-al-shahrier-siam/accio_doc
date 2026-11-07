@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { redirect, usePathname, useRouter } from "next/navigation";
 import { Avatar, Button } from "@heroui/react";
 import { FiBell, FiLogOut, FiPlus } from "react-icons/fi";
 import { FaUserDoctor, FaWandMagicSparkles } from "react-icons/fa6";
 import { authClient } from "@/lib/auth-client";
 import Image from "next/image";
+import toast from "react-hot-toast";
 
 const navLinks = [
     { name: "Home", href: "/" },
@@ -22,7 +23,8 @@ export default function Navbar() {
 
     const handleLogout = async () => {
         await authClient.signOut();
-        alert("Logout successful...")
+        toast.success("Logout successful...")
+        redirect("/")
 
     };
 

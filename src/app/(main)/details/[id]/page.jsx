@@ -3,6 +3,7 @@ import { getDoctorByID } from "@/lib/data";
 import { Button, Card } from "@heroui/react";
 import Image from "next/image";
 import React from "react";
+import { Toaster } from "react-hot-toast";
 import { FaStar } from "react-icons/fa";
 import { LuArrowRight, LuBadgeCheck, LuBuilding2, LuClock, LuLightbulb, LuMapPin, LuMoon, LuSun } from "react-icons/lu";
 
@@ -15,6 +16,9 @@ const DoctorDetailsPage = async ({ params }) => {
 
     return (
         <div>
+            <div>
+                <Toaster />
+            </div>
             <main className="min-h-screen bg-linear-to-b from-[#f1eff7] via-[#f8f7fc] to-[#f8f7fc] px-4 py-4 text-[#1c1a2e] sm:px-6">
                 <div className="mx-auto flex max-w-275 flex-col gap-5">
                     <Card shadow="sm" radius="lg" className="bg-white">
@@ -56,9 +60,8 @@ const DoctorDetailsPage = async ({ params }) => {
                                                 <LuClock className="h-3.5 w-3.5" />
                                                 Chamber Open Today
                                             </span>
-
                                         </div>
-                                            <p className="font-bold text-2xl">{doctor.experience} of experience</p>
+                                        <p className="font-bold text-2xl">{doctor.experience} of experience</p>
                                     </div>
                                 </div>
                             </div>
@@ -157,7 +160,7 @@ const DoctorDetailsPage = async ({ params }) => {
 
                                 {/* CTA */}
                                 <div className="flex flex-col items-center gap-2">
-                                    <BookingModal doctor={doctor} ></BookingModal>
+                                    <BookingModal doctor={doctor}></BookingModal>
                                     <p className="text-center text-[11px] text-gray-600">Pay at chamber desk upon arrival • Free cancellation up to 2 hours prior</p>
                                 </div>
 

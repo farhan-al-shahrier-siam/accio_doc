@@ -5,6 +5,7 @@ import { Button, Input } from "@heroui/react";
 import Link from "next/link";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { HiOutlineLockClosed, HiOutlineLogin, HiOutlineShieldCheck, HiOutlineUserAdd, HiSparkles } from "react-icons/hi";
@@ -35,22 +36,22 @@ const RegisterPage = () => {
                 callbackURL: "/login",
             });
 
-            console.log("SIGN UP RESPONSE:", res);
-            console.log("SIGN UP ERROR:", error);
+            // console.log("SIGN UP RESPONSE:", res);
+            // console.log("SIGN UP ERROR:", error);
 
             if (error) {
-                alert(error.message);
+                toast.error(error.message)
                 return;
             }
 
             if (res) {
-                alert("Sign up successful!");
+                toast.success("Sign up successful!")
                 // eslint-disable-next-line react-hooks/immutability
                 window.location.href = "/login";
             }
         } catch (error) {
-            console.error("SIGN UP ERROR:", error);
-            alert("Something went wrong. Please try again.");
+            // console.error("SIGN UP ERROR:", error);
+            toast.error("Something went wrong. Please try again.")
         } finally {
             setLoading(false);
         }
@@ -60,6 +61,7 @@ const RegisterPage = () => {
         const data = await authClient.signIn.social({
             provider: "google",
         });
+        toast.success("Sign up successful!")
     };
 
     return (

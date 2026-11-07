@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { Button, Input, Label, Modal, TextField } from "@heroui/react";
 
 import { LuArrowRight, LuCalendarDays, LuCalendarCheck, LuX, LuUser, LuMail, LuPhone } from "react-icons/lu";
+import toast from "react-hot-toast";
 
 const BookingModal = ({ doctor }) => {
     const { data: session } = authClient.useSession();
@@ -51,7 +52,7 @@ const BookingModal = ({ doctor }) => {
         })
         const result = res.json();
 
-        alert("Booking successful...")
+        toast.success('Appointment booked successfully!')
 
 
     };

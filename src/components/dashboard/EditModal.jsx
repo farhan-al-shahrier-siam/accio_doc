@@ -5,6 +5,7 @@ import { Button, Input, Label, Modal, Surface, TextField } from "@heroui/react";
 import { redirect } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { FiEdit3 } from "react-icons/fi";
 
 const EditModal = ({ photo, name }) => {
@@ -21,7 +22,7 @@ const EditModal = ({ photo, name }) => {
             name: name,
             image: photo,
         });
-        alert("Update Successfull")
+        toast.success("Profile updated successfully!")
         redirect("/dashboard")
     };
 

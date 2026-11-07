@@ -4,6 +4,7 @@ import { Button, Input } from "@heroui/react";
 import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { HiOutlineLockClosed, HiOutlineLogin, HiOutlineUserAdd, HiOutlineShieldCheck, HiSparkles } from "react-icons/hi";
@@ -25,10 +26,10 @@ export default function LoginPage() {
             callbackURL: "/",
         });
         if (res) {
-            alert("Login successfull...");
+            toast.success("Login successfull...")
         }
         if (error) {
-            alert(error.message);
+            toast.error(error.message)
         }
     };
 
@@ -36,6 +37,7 @@ export default function LoginPage() {
         const data = await authClient.signIn.social({
             provider: "google",
         });
+        toast.success("Login successfull...")
     };
 
     return (

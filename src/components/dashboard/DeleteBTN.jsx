@@ -2,6 +2,7 @@
 import { AlertDialog, Button } from "@heroui/react";
 import { redirect } from "next/navigation";
 import React from "react";
+import toast from "react-hot-toast";
 import { FaTrash } from "react-icons/fa";
 
 const DeleteBTN = ({doctor, _id}) => {
@@ -15,7 +16,7 @@ const DeleteBTN = ({doctor, _id}) => {
             }
         })
         const data = await res.json()
-        alert("Appointment deleted successfully!")
+        toast.success("Appointment deleted successfully!")
         redirect("/dashboard")
 
     }
