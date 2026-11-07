@@ -2,6 +2,12 @@ import Banner from "@/components/home/Banner";
 import Testimonials from "@/components/home/Testimonials";
 import TopThreeDoctors from "@/components/home/TopThreeDoctors";
 import WhyHowSection from "@/components/home/WhyHowSection";
+
+export const metadata = {
+  title: "AccioDoc || Home",
+  description: "A Doctor Appointment Booking System.",
+};
+
 export default function Home() {
   return (
     <div>

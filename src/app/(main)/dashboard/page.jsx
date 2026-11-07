@@ -6,6 +6,11 @@ import { headers } from "next/headers";
 import Image from "next/image";
 import { FiCheck, FiChevronLeft, FiPlus } from "react-icons/fi";
 
+export const metadata = {
+  title: "AccioDoc || DashBoard",
+  description: "A Doctor Appointment Booking System.",
+};
+
 const DashBoard = async () => {
     const session = await auth.api.getSession({
         headers: await headers(),

@@ -3,6 +3,11 @@ import Searchfield from "@/components/all-appointment/Searchfield";
 import React from "react";
 import { FiAward, FiShield, FiZap } from "react-icons/fi";
 
+export const metadata = {
+  title: "AccioDoc || All Appointments",
+  description: "A Doctor Appointment Booking System.",
+};
+
 const AllAppointmentPage = () => {
     return (
         <div>

@@ -7,6 +7,17 @@ import { Toaster } from "react-hot-toast";
 import { FaStar } from "react-icons/fa";
 import { LuArrowRight, LuBadgeCheck, LuBuilding2, LuClock, LuLightbulb, LuMapPin, LuMoon, LuSun } from "react-icons/lu";
 
+export const generateMetadata = async({params})=>{
+    const {id} = await params
+    const doctor = await getDoctorByID(id);
+    console.log(doctor);
+
+    return {
+    title: doctor.name,
+    description: doctor.description,
+  }
+}
+
 const DoctorDetailsPage = async ({ params }) => {
     const { id } = await params;
 
